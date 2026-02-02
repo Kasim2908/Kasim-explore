@@ -131,11 +131,22 @@ Update the content directly in `index.html`:
 
 This project is open source and available under the [MIT License](LICENSE).
 
+## � Deployment
+
+This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
+
+### How it works
+1. Push changes to the `main` branch
+2. GitHub Actions workflow automatically triggers
+3. Site is deployed to GitHub Pages
+
+**Live URL:** [https://kasim2908.github.io/Kasim-explore/](https://kasim2908.github.io/Kasim-explore/)
+
 ## 📬 Contact
 
 **Mohammad Kasim** - DevOps Engineer
 
-- 🌐 Portfolio: [View Live](#)
+- 🌐 Portfolio: [View Live](https://kasim2908.github.io/Kasim-explore/)
 - 💼 LinkedIn: [Connect](#)
 - 🐙 GitHub: [@Kasim2908](https://github.com/Kasim2908)
 
