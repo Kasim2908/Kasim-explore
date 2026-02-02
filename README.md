@@ -147,11 +147,11 @@ This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
 **Mohammad Kasim** - DevOps Engineer
 
 - 🌐 Portfolio: [View Live](https://kasim2908.github.io/Kasim-explore/)
-- 💼 LinkedIn: [Connect](#)
+- 💼 LinkedIn: [Connect](https://www.linkedin.com/in/mohammad-kasim-391325372/)
 - 🐙 GitHub: [@Kasim2908](https://github.com/Kasim2908)
 
 ---
 
 <p align="center">
-  Made with ❤️ by Mohammad Kasim
+  Made by Mohammad Kasim
 </p>
