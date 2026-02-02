@@ -1,0 +1,397 @@
+/* ===== Professional Dark Theme - Cube Network Background ===== */
+
+/* Base Variables */
+:root {
+    --primary: #3b82f6;
+    --secondary: #8b5cf6;
+    --accent: #10b981;
+    --dark: #0a0a0f;
+    --darker: #050507;
+    --card: #111118;
+    --border: #1e1e2e;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+}
+
+/* ===== Keyframe Animations ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes cubeFloat {
+    0%, 100% { 
+        transform: translateY(0) rotateX(0deg) rotateY(0deg); 
+    }
+    25% { 
+        transform: translateY(-10px) rotateX(5deg) rotateY(10deg); 
+    }
+    50% { 
+        transform: translateY(-5px) rotateX(0deg) rotateY(20deg); 
+    }
+    75% { 
+        transform: translateY(-15px) rotateX(-5deg) rotateY(10deg); 
+    }
+}
+
+@keyframes connectionPulse {
+    0%, 100% { 
+        opacity: 0.15;
+        stroke-dashoffset: 0;
+    }
+    50% { 
+        opacity: 0.4;
+        stroke-dashoffset: 20;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ===== Cube Network Background ===== */
+.cube-network {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.cube-network svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.network-cube {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform-style: preserve-3d;
+    animation: cubeFloat 8s ease-in-out infinite;
+}
+
+.network-cube .face {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.network-cube .front  { transform: translateZ(10px); }
+.network-cube .back   { transform: rotateY(180deg) translateZ(10px); }
+.network-cube .right  { transform: rotateY(90deg) translateZ(10px); }
+.network-cube .left   { transform: rotateY(-90deg) translateZ(10px); }
+.network-cube .top    { transform: rotateX(90deg) translateZ(10px); }
+.network-cube .bottom { transform: rotateX(-90deg) translateZ(10px); }
+
+.network-cube.accent .face {
+    border-color: rgba(16, 185, 129, 0.3);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.network-cube.secondary .face {
+    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.05);
+}
+
+.connection-line {
+    stroke: url(#lineGradient);
+    stroke-width: 1;
+    fill: none;
+    stroke-dasharray: 5, 5;
+    animation: connectionPulse 4s ease-in-out infinite;
+}
+
+/* ===== Glass Card Effect ===== */
+.glass-card {
+    background: rgba(17, 17, 24, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(30, 30, 46, 0.5);
+}
+
+/* ===== Scroll Animations ===== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2563eb, #7c3aed);
+}
+
+/* ===== Selection Color ===== */
+::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: #fff;
+}
+
+/* ===== Loading Animation ===== */
+.loading {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(59, 130, 246, 0.1);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* ===== Hover Effects ===== */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+}
+
+/* ===== Glow Effects ===== */
+.glow-primary {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.glow-secondary {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.glow-accent {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+/* ===== Text Glow ===== */
+.text-glow-primary {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.text-glow-secondary {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+/* ===== Border Gradient ===== */
+.border-gradient {
+    border: 1px solid transparent;
+    background: linear-gradient(var(--card), var(--card)) padding-box,
+                linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+}
+
+/* ===== Animated Background Gradient ===== */
+.bg-animated-gradient {
+    background: linear-gradient(-45deg, var(--darker), var(--dark), #0f0f1a, var(--dark));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+/* ===== Card Hover Effects ===== */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(17, 17, 24, 0.9);
+}
+
+/* ===== Section Divider ===== */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ===== Terminal Mockup ===== */
+.terminal-mockup {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* ===== Navigation Active State ===== */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===== Button Styles ===== */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* ===== Form Styles ===== */
+.form-input {
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: none;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+    .network-cube {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .network-cube .face {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .network-cube .front  { transform: translateZ(7.5px); }
+    .network-cube .back   { transform: rotateY(180deg) translateZ(7.5px); }
+    .network-cube .right  { transform: rotateY(90deg) translateZ(7.5px); }
+    .network-cube .left   { transform: rotateY(-90deg) translateZ(7.5px); }
+    .network-cube .top    { transform: rotateX(90deg) translateZ(7.5px); }
+    .network-cube .bottom { transform: rotateX(-90deg) translateZ(7.5px); }
+}
+
+/* ===== Certification & Blog Card Styles ===== */
+.cert-badge,
+.blog-card,
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.cert-badge:hover,
+.blog-card:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* ===== Social Links ===== */
+.social-link {
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    color: var(--primary);
+}
+
+/* ===== Line Clamp Utility ===== */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ===== Smooth Page Transitions ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== Gradient Text ===== */
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
