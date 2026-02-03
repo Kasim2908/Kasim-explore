@@ -153,5 +153,5 @@ This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
 ---
 
 <p align="center">
-  Made with ❤️ by Mohammad Kasim
+  Made by Mohammad Kasim
 </p>
