@@ -155,3 +155,63 @@ This portfolio is automatically deployed to GitHub Pages using GitHub Actions.
 <p align="center">
   Made by Mohammad Kasim
 </p>
+
+---
+
+## Real-Time Chat Application
+
+### Introduction
+
+This project provides a scalable and secure real-time chat experience with modern frontend and backend tooling. It is designed for maintainability, instant communication, and clean architecture.
+
+### Detailed Workflow
+
+1. Users interact with the React frontend in the browser for login, messaging, and profile actions.
+2. The frontend uses HTTP APIs for authentication and data operations, and WebSockets for real-time updates.
+3. The Node.js and Express backend handles API requests, validates JWT tokens, and manages business logic.
+4. Socket.io enables bidirectional communication for instant message delivery, typing indicators, and online presence.
+5. MongoDB stores persistent data such as user profiles, messages, and related chat metadata.
+
+### Flow Architecture
+
+```mermaid
+flowchart LR
+      U[User] --> B[Browser]
+      B --> F[Frontend React App]
+      F -->|HTTP REST API| A[Node.js + Express Backend]
+      F -->|WebSocket| S[Socket.io Server]
+      A -->|Read/Write| M[(MongoDB)]
+      S -->|Persist Messages| M
+      A -->|JWT Auth| J[Auth Service]
+      F -->|State Management| Z[Zustand Store]
+      N[Nginx] --> F
+      D[Docker Containers] --> N
+      D --> A
+      K[Kubernetes Planned] -.orchestration.- D
+```
+
+### Features
+
+- Real-time Messaging: Send and receive messages instantly using Socket.io.
+- User Authentication and Authorization: Secure user access with JWT.
+- Scalable and Secure Architecture: Built for higher traffic and growth.
+- Modern UI Design: React with TailwindCSS and DaisyUI.
+- Profile Management: Upload and update profile pictures.
+- Online Status: Real-time online and offline indicators.
+
+### Tech Stack
+
+- Backend: Node.js, Express, MongoDB, Socket.io
+- Frontend: React, TailwindCSS
+- Containerization: Docker
+- Orchestration: Kubernetes (planned)
+- Web Server: Nginx
+- State Management: Zustand
+- Authentication: JWT
+- Styling Components: DaisyUI
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- Docker
+- Git
